@@ -32,4 +32,8 @@ public class User {
     public void makePlaylist(){
         this.playlists.add(new Playlist());
     }
+
+    public void removePlaylist(Playlist playlist){
+        this.playlists.remove(playlist);
+    }
 }
