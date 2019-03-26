@@ -4,9 +4,10 @@ public class Iteration2
 {  
    public static void main(String[] args)
    {  
-      JFrame frame = new //Name of class();
+      JFrame frame = new GUIPanel();
+      frame.setSize(720, 480);
       frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-      frame.setTitle("name of program");
-      frame.setVisible(true);      
+      frame.setTitle("RyeTunes");
+      frame.setVisible(true);
    }
 }

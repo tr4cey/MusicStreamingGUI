@@ -37,11 +37,6 @@ public class GUIPanel extends JFrame
         westTopPanel.add(myPlaylists, BorderLayout.CENTER);
         westCentrePanel.add(myPlaylistsTextArea, BorderLayout.CENTER);
 
-
-
-
-
-
         JScrollPane scrollPaneSavings = new JScrollPane(myPlaylistsTextArea);
 
         westCentrePanel.add(scrollPaneSavings);
