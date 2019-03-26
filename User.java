@@ -10,7 +10,6 @@ public class User {
 
         userName = "John Doe";
         playlists = new ArrayList<Playlist>();
-
     }
 
     public User(String userName){
@@ -29,8 +28,4 @@ public class User {
     public Playlist getPlaylist(int index){
         return this.playlists.get(index);
     }
-
-
-
-
 }
