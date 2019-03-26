@@ -13,6 +13,15 @@ public class User {
 
     }
 
+    public User(String userName){
+        this.userName = userName;
+        playlists = new ArrayList<Playlist>();
+    }
+
+    public String getUserName(){
+        return this.userName;
+    }
+
     public ArrayList<Playlist> getAllPlaylists(){
         return this.playlists;
     }
