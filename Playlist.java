@@ -36,15 +36,13 @@ public class Playlist {
      * @return the length of the playlist in seconds
      */
 
-    public String playlistLength(ArrayList<Song> playlist)
-    {
-
-        int length = 0;
-
+    public int playlistRunTime(ArrayList<Song> playlist){
+        int runTime = 0; //in seconds
         for(int i = 0; i < playlist.size(); i++)
         {
-            length += playlist.get(i).secLength;
+            runTime += playlist.get(i).secLength;
         }
+        return runTime;
     }
 
 }
