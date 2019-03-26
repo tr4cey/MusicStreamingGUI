@@ -13,6 +13,14 @@ public class User {
 
     }
 
+    public ArrayList<Playlist> getAllPlaylists(){
+        return this.playlists;
+    }
+
+    public Playlist getPlaylist(int index){
+        return this.playlists.get(index);
+    }
+
 
 
 

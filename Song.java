@@ -25,7 +25,7 @@ public class Song
     }
     public String getGenre()
     {
-        return secLength;
+        return genre;
     }
     public int getYear()
     {
@@ -41,7 +41,6 @@ public class Song
         String minSec = (secLength/60) + "";
         minSec += ":";
         minSec += (secLength%60) + "";
-
         return minSec;
     }
 }
