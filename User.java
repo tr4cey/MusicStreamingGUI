@@ -28,4 +28,8 @@ public class User {
     public Playlist getPlaylist(int index){
         return this.playlists.get(index);
     }
+
+    public void makePlaylist(){
+        this.playlists.add(new Playlist());
+    }
 }
