@@ -24,3 +24,17 @@ git pull
 To check the status of the branch you are on:
 
 git status
+
+-------------------------------------------------------------------------
+To switch to another branck:
+
+git checkout _branchName_
+
+------------------------------------------------------------------------
+To make a new branch:
+
+1) Ensure that you have pushed all changes to the branch you are working on
+2) Switch to the master branch
+	git checkout master
+3) Make a new branch
+	git checkout -b  _branchName_
