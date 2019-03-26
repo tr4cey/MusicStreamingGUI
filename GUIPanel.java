@@ -71,8 +71,5 @@ public class GUIPanel extends JFrame
         mainPanel.add(centrePanel, BorderLayout.CENTER);
 
         add(mainPanel);
-
-
-
     }
 }
