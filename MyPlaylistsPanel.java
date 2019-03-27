@@ -36,7 +36,8 @@ public class MyPlaylistsPanel extends JPanel
         this.add(title, BorderLayout.NORTH);
     }
 
-    public void addNewPlayList() {
+    public void addNewPlayList()
+    {
         JButton button = new JButton("+");
         // add button actions here...
         this.add(button,BorderLayout.SOUTH);
