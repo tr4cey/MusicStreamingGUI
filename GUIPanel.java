@@ -22,16 +22,19 @@ public class GUIPanel extends JFrame
     public void createMyPlaylistsPanel()
     {
         JPanel myPanel = new MyPlaylistsPanel();
+        myPanel.setPreferredSize( new Dimension( 100, 200 ) );
         this.add(myPanel, BorderLayout.WEST);
     }
     public void createCurPlaylistPanel()
     {
         JPanel currentPanel = new CurPlaylistPanel();
+        currentPanel.setPreferredSize( new Dimension( 100, 200 ) );
         this.add(currentPanel, BorderLayout.CENTER);
     }
     public void createOtherPlaylistsPanel()
     {
         JPanel otherPanel = new OtherPlaylistsPanel();
+        otherPanel.setPreferredSize( new Dimension( 100, 200 ) );
         this.add(otherPanel, BorderLayout.EAST);
     }
 }
