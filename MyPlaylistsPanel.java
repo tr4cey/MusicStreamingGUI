@@ -1,4 +1,3 @@
-
 import java.awt.BorderLayout;
 
 import javax.swing.*;
@@ -38,8 +37,13 @@ public class MyPlaylistsPanel extends JPanel
 
     public void addNewPlayList()
     {
-        JButton button = new JButton("+");
+        JPanel buttonPanel = new JPanel(new GridLayout(1,2));
+        JButton addButton = new JButton("+");
+        JButton removeButton = new JButton("-");
         // add button actions here...
-        this.add(button,BorderLayout.SOUTH);
+
+        buttonPanel.add(addButton);
+        buttonPanel.add(removeButton);
+        this.add(buttonPanel, BorderLayout.SOUTH);
     }
 }
