@@ -37,10 +37,23 @@ public class MyPlaylistsPanel extends JPanel
 
     public void addNewPlayList()
     {
+
         JPanel buttonPanel = new JPanel(new GridLayout(1,2));
         JButton addButton = new JButton("+");
         JButton removeButton = new JButton("-");
-        // add button actions here...
+        // button actions here...
+
+        // ===== "+" button actions and popup window =====
+        final JFrame popup = new JFrame();
+        addButton.addActionListener(new java.awt.event.ActionListener() {
+            @Override
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                String name = JOptionPane.showInputDialog(popup,
+                        "New Playlist Name", null);
+            }
+        });
+
+        // === End of popup and "+" button functionality =====
 
         buttonPanel.add(addButton);
         buttonPanel.add(removeButton);
