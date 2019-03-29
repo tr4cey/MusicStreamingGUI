@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 
-public class Playlist {
+public class Playlist{
     
     private ArrayList<Song> songs;
     String name;
@@ -9,6 +9,13 @@ public class Playlist {
 
     public Playlist(String name){
         this.name=name;
+        playlistLength = 0;
+        playlistTime = 0;
+        songs = new ArrayList<Song>();
+
+    }
+    public Playlist(){
+        this.name="New Playlist";
         playlistLength = 0;
         playlistTime = 0;
         songs = new ArrayList<Song>();
@@ -39,4 +46,15 @@ public class Playlist {
         playlistLength ++;
     }
 
+    public void sortPlaylist(){
+        Collections.sort(Songs, new CompareSongs());
+    }
+    
+}
+
+class CompareSongs implements Comparator<Song>{
+    @Override
+    public int compareTo(Song a, song b) {
+        return a.getName.compareToIgnoreCase(b.getName());
+    }
 }
