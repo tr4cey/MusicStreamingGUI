@@ -12,7 +12,13 @@ public class Playlist {
         playlistLength = 0;
         playlistTime = 0;
         songs = new ArrayList<Song>();
-
+    }
+    public Playlist()
+    {
+        this.name = "Playlist";
+        playlistLength = 0;
+        playlistTime = 0;
+        songs = new ArrayList<Song>();
     }
     public String getPlaylistName(){
         return this.name;
