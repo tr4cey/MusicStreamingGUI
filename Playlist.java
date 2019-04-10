@@ -16,12 +16,6 @@ public class Playlist
     }
     public Playlist()
     {
-        this.name = "Playlist";
-        playlistLength = 0;
-        playlistTime = 0;
-        songs = new ArrayList<Song>();
-    }
-    public Playlist(){
         this.name="New Playlist";
         playlistLength = 0;
         playlistTime = 0;
@@ -64,13 +58,13 @@ public class Playlist
         playlistLength ++;
     }
 
-    public void sortPlaylist(){
+    /*public void sortPlaylist(){
         Collections.sort(Songs, new CompareSongs());
-    }
+    }*/
     
 }
 
-class CompareSongs implements Comparator<Song>{
+/*class CompareSongs implements Comparator<Song>{
     @Override
     public int compareTo(Song a, song b) {
         return a.getName.compareToIgnoreCase(b.getName());
@@ -80,7 +74,7 @@ class CompareSongs implements Comparator<Song>{
      * Gets the length of the playlist in seconds
      * @param playlist the playlist
      * @return the length of the playlist in seconds
-     */
+     
 
     public int playlistRunTime(ArrayList<Song> playlist){
         int runTime = 0; //in seconds
@@ -91,4 +85,4 @@ class CompareSongs implements Comparator<Song>{
         return runTime;
     }
 
-}
+}*/
