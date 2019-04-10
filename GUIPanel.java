@@ -167,6 +167,11 @@ public class GUIPanel extends javax.swing.JFrame
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         btnNewPlaylist.setText("+");
+        btnNewPlaylist.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnNewPlaylistActionPerformed(evt);
+            }
+        });
 
         jLabel1.setText("My Playlist");
         jLabel1.setToolTipText("");
@@ -174,16 +179,46 @@ public class GUIPanel extends javax.swing.JFrame
         jLabel2.setText("Playlist Name");
 
         btnSortByName.setText("Name");
+        btnSortByName.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSortByNameActionPerformed(evt);
+            }
+        });
 
         btnSortByArtist.setText("Artist");
+        btnSortByArtist.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSortByArtistActionPerformed(evt);
+            }
+        });
 
         btnSortByGenre.setText("Genre");
+        btnSortByGenre.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSortByGenreActionPerformed(evt);
+            }
+        });
 
         btnSortByTime.setText("Time");
+        btnSortByTime.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSortByTimeActionPerformed(evt);
+            }
+        });
 
         btnAddToPlaylist.setText("Add to my Playlist");
+        btnAddToPlaylist.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAddToPlaylistActionPerformed(evt);
+            }
+        });
 
         btnDeletePlaylist.setText("-");
+        btnDeletePlaylist.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDeletePlaylistActionPerformed(evt);
+            }
+        });
 
         listOtherSongs.setModel(otherUserSongsListDisplay);
         jScrollPane6.setViewportView(listOtherSongs);
@@ -261,6 +296,41 @@ public class GUIPanel extends javax.swing.JFrame
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnNewPlaylistActionPerformed(java.awt.event.ActionEvent evt) 
+    {//GEN-FIRST:event_btnNewPlaylistActionPerformed
+        System.out.println("New Playlist Pressed");
+    }//GEN-LAST:event_btnNewPlaylistActionPerformed
+
+    private void btnDeletePlaylistActionPerformed(java.awt.event.ActionEvent evt) 
+    {//GEN-FIRST:event_btnDeletePlaylistActionPerformed
+        System.out.println("Delete Playlist Pressed");
+    }//GEN-LAST:event_btnDeletePlaylistActionPerformed
+
+    private void btnAddToPlaylistActionPerformed(java.awt.event.ActionEvent evt) 
+    {//GEN-FIRST:event_btnAddToPlaylistActionPerformed
+        System.out.println("Add To Playlist Pressed");
+    }//GEN-LAST:event_btnAddToPlaylistActionPerformed
+
+    private void btnSortByNameActionPerformed(java.awt.event.ActionEvent evt) 
+    {//GEN-FIRST:event_btnSortByNameActionPerformed
+        System.out.println("Sort by Name Pressed");
+    }//GEN-LAST:event_btnSortByNameActionPerformed
+
+    private void btnSortByArtistActionPerformed(java.awt.event.ActionEvent evt) 
+    {//GEN-FIRST:event_btnSortByArtistActionPerformed
+        System.out.println("Sort by Artist Pressed");
+    }//GEN-LAST:event_btnSortByArtistActionPerformed
+
+    private void btnSortByGenreActionPerformed(java.awt.event.ActionEvent evt) 
+    {//GEN-FIRST:event_btnSortByGenreActionPerformed
+        System.out.println("Sort by Genre Pressed");
+    }//GEN-LAST:event_btnSortByGenreActionPerformed
+
+    private void btnSortByTimeActionPerformed(java.awt.event.ActionEvent evt) 
+    {//GEN-FIRST:event_btnSortByTimeActionPerformed
+        System.out.println("Sort by Action Pressed");
+    }//GEN-LAST:event_btnSortByTimeActionPerformed
 
     public static void main(String args[])
     {
