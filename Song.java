@@ -4,7 +4,6 @@ public class Song
 
     // length is in seconds will have a method to convert to minutes
     int year, secLength = 0;
-    
 
     Song(String name, String artist, int year, int secLength, String genre)
     {
