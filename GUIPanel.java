@@ -96,74 +96,72 @@ public class GUIPanel extends javax.swing.JFrame
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jButton1 = new javax.swing.JButton();
+        btnNewPlaylist = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
-        jButton6 = new javax.swing.JButton();
-        jButton7 = new javax.swing.JButton();
-        jButton8 = new javax.swing.JButton();
+        btnSortByName = new javax.swing.JButton();
+        btnSortByArtist = new javax.swing.JButton();
+        btnSortByGenre = new javax.swing.JButton();
+        btnSortByTime = new javax.swing.JButton();
+        btnAddToPlaylist = new javax.swing.JButton();
+        btnDeletePlaylist = new javax.swing.JButton();
         jScrollPane6 = new javax.swing.JScrollPane();
-        jList5 = new javax.swing.JList<>();
+        listOtherSongs = new javax.swing.JList<>();
         jScrollPane7 = new javax.swing.JScrollPane();
-        jList6 = new javax.swing.JList<>();
+        listOtherPlaylists = new javax.swing.JList<>();
         jScrollPane5 = new javax.swing.JScrollPane();
-        jList4 = new javax.swing.JList<>();
+        listMySongs = new javax.swing.JList<>();
         jScrollPane8 = new javax.swing.JScrollPane();
-        jList7 = new javax.swing.JList<>();
+        listUserPlayLists = new javax.swing.JList<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jButton1.setText("+");
+        btnNewPlaylist.setText("+");
 
         jLabel1.setText("My Playlist");
         jLabel1.setToolTipText("");
 
         jLabel2.setText("Playlist Name");
 
-        jButton3.setText("Name");
+        btnSortByName.setText("Name");
 
-        jButton4.setText("Artist");
+        btnSortByArtist.setText("Artist");
 
-        jButton5.setText("Genre");
+        btnSortByGenre.setText("Genre");
 
-        jButton6.setText("Time");
+        btnSortByTime.setText("Time");
 
-        jButton7.setText("Add to my Playlist");
+        btnAddToPlaylist.setText("Add to my Playlist");
 
-        jButton8.setText("-");
+        btnDeletePlaylist.setText("-");
 
-        DefaultListModel<String> listModel = new DefaultListModel<String>();
-
-        for (int i = 0; i < otherUserPlaylists.get(0).getList().size(); i++) {
-            listModel.addElement(otherUserPlaylists.get(0).getSong(i).getName());;
-        }
-
-        jList5.setModel(listModel);
-        jScrollPane6.setViewportView(jList5);
-
-        jList6.setModel(new javax.swing.AbstractListModel<String>() {
+        listOtherSongs.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
             public String getElementAt(int i) { return strings[i]; }
         });
-        jScrollPane7.setViewportView(jList6);
+        jScrollPane6.setViewportView(listOtherSongs);
 
-        jList4.setModel(new javax.swing.AbstractListModel<String>() {
+        listOtherPlaylists.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
             public String getElementAt(int i) { return strings[i]; }
         });
-        jScrollPane5.setViewportView(jList4);
+        jScrollPane7.setViewportView(listOtherPlaylists);
 
-        jList7.setModel(new javax.swing.AbstractListModel<String>() {
+        listMySongs.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
             public String getElementAt(int i) { return strings[i]; }
         });
-        jScrollPane8.setViewportView(jList7);
+        jScrollPane5.setViewportView(listMySongs);
+
+        listUserPlayLists.setModel(new javax.swing.AbstractListModel<String>() {
+            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
+            public int getSize() { return strings.length; }
+            public String getElementAt(int i) { return strings[i]; }
+        });
+        jScrollPane8.setViewportView(listUserPlayLists);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -172,9 +170,9 @@ public class GUIPanel extends javax.swing.JFrame
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnNewPlaylist, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(btnDeletePlaylist, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -185,17 +183,17 @@ public class GUIPanel extends javax.swing.JFrame
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel2)
                         .addGap(55, 55, 55)
-                        .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnSortByName, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnSortByArtist, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnSortByGenre, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(btnSortByTime, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jScrollPane5))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnAddToPlaylist, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jScrollPane6)
                     .addComponent(jScrollPane7))
                 .addContainerGap())
@@ -207,10 +205,10 @@ public class GUIPanel extends javax.swing.JFrame
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
                     .addComponent(jLabel2)
-                    .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnSortByName, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnSortByArtist, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnSortByGenre, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnSortByTime, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(5, 5, 5)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane5)
@@ -221,9 +219,9 @@ public class GUIPanel extends javax.swing.JFrame
                     .addComponent(jScrollPane8))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton7)
-                    .addComponent(jButton8))
+                    .addComponent(btnNewPlaylist)
+                    .addComponent(btnAddToPlaylist)
+                    .addComponent(btnDeletePlaylist))
                 .addContainerGap())
         );
 
@@ -266,22 +264,22 @@ public class GUIPanel extends javax.swing.JFrame
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
-    private javax.swing.JButton jButton7;
-    private javax.swing.JButton jButton8;
+    private javax.swing.JButton btnAddToPlaylist;
+    private javax.swing.JButton btnDeletePlaylist;
+    private javax.swing.JButton btnNewPlaylist;
+    private javax.swing.JButton btnSortByArtist;
+    private javax.swing.JButton btnSortByGenre;
+    private javax.swing.JButton btnSortByName;
+    private javax.swing.JButton btnSortByTime;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JList<String> jList4;
-    private javax.swing.JList<String> jList5;
-    private javax.swing.JList<String> jList6;
-    private javax.swing.JList<String> jList7;
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JScrollPane jScrollPane7;
     private javax.swing.JScrollPane jScrollPane8;
+    private javax.swing.JList<String> listMySongs;
+    private javax.swing.JList<String> listOtherPlaylists;
+    private javax.swing.JList<String> listOtherSongs;
+    private javax.swing.JList<String> listUserPlayLists;
     // End of variables declaration//GEN-END:variables
 }
