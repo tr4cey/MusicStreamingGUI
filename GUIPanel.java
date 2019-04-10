@@ -1,16 +1,18 @@
 import java.io.*;
 import java.util.*;
 
-public class GUIPanel extends javax.swing.JFrame 
+import javax.swing.DefaultListModel;
+
+public class GUIPanel extends javax.swing.JFrame
 {
     List<Playlist> otherUserPlaylists;
 
-    public GUIPanel() 
+    public GUIPanel()
     {
         otherUserPlaylists = new ArrayList<Playlist>();
-        
+
         otherUserPlaylists.add(masterPlaylist());
-        
+
         initComponents();
     }
 
@@ -48,30 +50,30 @@ public class GUIPanel extends javax.swing.JFrame
         otherUserPlaylists.add(abba);
         otherUserPlaylists.add(queen);
     }
-    
+
     public Playlist masterPlaylist()
     {
         Playlist master = new Playlist("All Songs");
         String file = "SongList.txt";
         String line = null;
         Scanner scan;
-        
+
         String name = "n/a";
         String artist = "n/a";
         String genre = "n/a";
         int year = 0,length = 0;
-        
+
         try
         {
             FileReader fr = new FileReader(file);
             BufferedReader br = new BufferedReader(fr);
-            
+
             while((line = br.readLine()) != null)
             {
                 scan = new Scanner(line);
                 scan.useDelimiter("_");
                 //System.out.println(line);
-                
+
                 while(scan.hasNext())
                 {
                     name = scan.next();
@@ -87,10 +89,10 @@ public class GUIPanel extends javax.swing.JFrame
         {
             e.printStackTrace();
         }
-        
+
         return master;
     }
-    
+
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
@@ -133,11 +135,19 @@ public class GUIPanel extends javax.swing.JFrame
 
         jButton8.setText("-");
 
-        jList5.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
-            public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
-        });
+        DefaultListModel<String> listModel = new DefaultListModel<String>();
+
+        for (int i = 0; i < otherUserPlaylists.get(0).getList().size(); i++) {
+            listModel.addElement(otherUserPlaylists.get(0).getSong(i).getName());;
+        }
+
+        jList5.setModel(
+            listModel
+        // new javax.swing.AbstractListModel<String>() {
+        //     String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
+        //     public int getSize() { return strings.length; }
+        //     public String getElementAt(int i) { return strings[i]; }
+        );
         jScrollPane6.setViewportView(jList5);
 
         jList6.setModel(new javax.swing.AbstractListModel<String>() {
@@ -225,13 +235,13 @@ public class GUIPanel extends javax.swing.JFrame
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-   
-    public static void main(String args[]) 
+
+    public static void main(String args[])
     {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
@@ -252,9 +262,9 @@ public class GUIPanel extends javax.swing.JFrame
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() 
+        java.awt.EventQueue.invokeLater(new Runnable()
         {
-            public void run() 
+            public void run()
             {
                 new GUIPanel().setVisible(true);
             }

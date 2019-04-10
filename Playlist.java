@@ -99,7 +99,7 @@ public class Playlist
         int runTime = 0; //in seconds
         for(int i = 0; i < playlist.size(); i++)
         {
-            runTime += playlist.get(i).secLength;
+            runTime += playlist.get(i).getLengthSec();
         }
         return runTime;
     }
