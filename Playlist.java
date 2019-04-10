@@ -1,7 +1,8 @@
 import java.util.ArrayList;
 
-public class Playlist{
-    
+public class Playlist
+{
+
     private ArrayList<Song> songs;
     String name;
     int playlistLength;
@@ -12,7 +13,13 @@ public class Playlist{
         playlistLength = 0;
         playlistTime = 0;
         songs = new ArrayList<Song>();
-
+    }
+    public Playlist()
+    {
+        this.name = "Playlist";
+        playlistLength = 0;
+        playlistTime = 0;
+        songs = new ArrayList<Song>();
     }
     public Playlist(){
         this.name="New Playlist";
@@ -36,10 +43,21 @@ public class Playlist{
         return minSec;
     } 
 
+    /**
+     * Gets the song from the playlist
+     * @param index the index of the song needed
+     * @return the song
+     */
+
     public Song getSong(int index){
         return this.songs.get(index);
     }
 
+
+    /**
+     * Adds the song to the playllst
+     * @param song the song being added
+     */
     public void addSong(Song song){
         this.songs.add(song);
         playlistTime = playlistTime + song.getLengthSec();
@@ -57,4 +75,20 @@ class CompareSongs implements Comparator<Song>{
     public int compareTo(Song a, song b) {
         return a.getName.compareToIgnoreCase(b.getName());
     }
+}
+    /**
+     * Gets the length of the playlist in seconds
+     * @param playlist the playlist
+     * @return the length of the playlist in seconds
+     */
+
+    public int playlistRunTime(ArrayList<Song> playlist){
+        int runTime = 0; //in seconds
+        for(int i = 0; i < playlist.size(); i++)
+        {
+            runTime += playlist.get(i).secLength;
+        }
+        return runTime;
+    }
+
 }

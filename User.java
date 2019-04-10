@@ -10,7 +10,15 @@ public class User {
 
         userName = "John Doe";
         playlists = new ArrayList<Playlist>();
+    }
 
+    public User(String userName){
+        this.userName = userName;
+        playlists = new ArrayList<Playlist>();
+    }
+
+    public String getUserName(){
+        return this.userName;
     }
 
     public ArrayList<Playlist> getAllPlaylists(){
@@ -21,7 +29,11 @@ public class User {
         return this.playlists.get(index);
     }
 
+    public void makePlaylist(){
+        this.playlists.add(new Playlist());
+    }
 
-
-
+    public void removePlaylist(Playlist playlist){
+        this.playlists.remove(playlist);
+    }
 }
