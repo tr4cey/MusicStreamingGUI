@@ -7,11 +7,28 @@ public class GUIPanel extends javax.swing.JFrame
 {
     List<Playlist> otherUserPlaylists;
 
+    // Song titles and playlist names are added to these for display
+    private DefaultListModel<String> userSongsListDisplay = new DefaultListModel<String>();
+    private DefaultListModel<String> otherUserSongsListDisplay = new DefaultListModel<String>();
+    private DefaultListModel<String> userPlaylistsDisplay = new DefaultListModel<String>();
+    private DefaultListModel<String> otherUserPlaylistsDisplay = new DefaultListModel<String>();
+
+
+    User masterUser = new User();
+
     public GUIPanel()
     {
+        //Dummy Playlist for testing
+        masterUser.makePlaylist();
+        masterUser.makePlaylist();
+        masterUser.getAllPlaylists().get(0).addSong(new Song("Poop","Poop",420,420,"garbage"));
+
         otherUserPlaylists = new ArrayList<Playlist>();
 
         otherUserPlaylists.add(masterPlaylist());
+
+        displayPlaylists(masterUser, "other");
+        displaySongs(masterUser.getPlaylist(0),"other");
 
         initComponents();
     }
@@ -93,6 +110,39 @@ public class GUIPanel extends javax.swing.JFrame
         return master;
     }
 
+    void displayPlaylists(User playlists, String location) {
+        DefaultListModel<String> toDisplay  =  new DefaultListModel<String>();
+        ArrayList<Playlist> listOfPlaylists = playlists.getAllPlaylists();
+
+        for (int i = 0; i < listOfPlaylists.size(); i++) {
+            toDisplay.addElement(listOfPlaylists.get(i).getPlaylistName());
+        }
+
+        if (location.toLowerCase().equals("user")) {
+            userPlaylistsDisplay = toDisplay;
+        }
+        else if (location.toLowerCase().equals("other")) {
+            otherUserPlaylistsDisplay = toDisplay;
+        }
+    }
+
+    void displaySongs(Playlist songs, String location) {
+        DefaultListModel<String> toDisplay  =  new DefaultListModel<String>();
+
+        for (int i = 0; i < songs.getSize(); i++) {
+            toDisplay.addElement(songs.getSong(i).getName());
+        }
+
+        if (location.toLowerCase().equals("user")) {
+            userSongsListDisplay = toDisplay;
+        }
+        else if (location.toLowerCase().equals("other")) {
+            otherUserSongsListDisplay = toDisplay;
+        }
+    }
+
+
+
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
@@ -135,32 +185,16 @@ public class GUIPanel extends javax.swing.JFrame
 
         btnDeletePlaylist.setText("-");
 
-        listOtherSongs.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
-            public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
-        });
+        listOtherSongs.setModel(otherUserSongsListDisplay);
         jScrollPane6.setViewportView(listOtherSongs);
 
-        listOtherPlaylists.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
-            public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
-        });
+        listOtherPlaylists.setModel(otherUserPlaylistsDisplay);
         jScrollPane7.setViewportView(listOtherPlaylists);
 
-        listMySongs.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
-            public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
-        });
+        listMySongs.setModel(userSongsListDisplay);
         jScrollPane5.setViewportView(listMySongs);
 
-        listUserPlayLists.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
-            public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
-        });
+        listUserPlayLists.setModel(userPlaylistsDisplay);
         jScrollPane8.setViewportView(listUserPlayLists);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
