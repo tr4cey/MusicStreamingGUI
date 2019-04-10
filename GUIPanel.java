@@ -304,6 +304,18 @@ public class GUIPanel extends javax.swing.JFrame
     private void btnNewPlaylistActionPerformed(java.awt.event.ActionEvent evt)
     {//GEN-FIRST:event_btnNewPlaylistActionPerformed
         System.out.println("New Playlist Pressed");
+        NewPlaylistDialog nameFrame = new NewPlaylistDialog(this, true);
+        nameFrame.setVisible(true);
+        
+        String playlistName = nameFrame.getName();
+        System.out.println(playlistName);
+
+        masterUser.addPlaylist(new Playlist(playlistName));
+        displayPlaylists(masterUser, "user");
+        
+        listUserPlayLists.setModel(userPlaylistsDisplay);
+        jScrollPane8.revalidate();
+        jScrollPane8.repaint();
     }//GEN-LAST:event_btnNewPlaylistActionPerformed
 
     private void btnDeletePlaylistActionPerformed(java.awt.event.ActionEvent evt)
