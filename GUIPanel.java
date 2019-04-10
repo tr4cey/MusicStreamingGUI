@@ -2,10 +2,14 @@ import java.io.*;
 import java.util.*;
 
 import javax.swing.DefaultListModel;
+import javax.swing.*;
+
+import javax.swing.event.*;
+
 
 public class GUIPanel extends javax.swing.JFrame
 {
-    List<Playlist> otherUserPlaylists;
+    User otherUserPlaylists = new User();
 
     // Song titles and playlist names are added to these for display
     private DefaultListModel<String> userSongsListDisplay = new DefaultListModel<String>();
@@ -18,24 +22,20 @@ public class GUIPanel extends javax.swing.JFrame
 
     public GUIPanel()
     {
-        //Dummy Playlist for testing
-        masterUser.makePlaylist();
-        masterUser.makePlaylist();
-        masterUser.getAllPlaylists().get(0).addSong(new Song("Poop","Poop",420,420,"garbage"));
+        //Add all songs playlist
+        otherUserPlaylists.addPlaylist(masterPlaylist());
+        //Add other premade playlists tp otherUserPlaylists
+        otherPlaylists();
 
-        otherUserPlaylists = new ArrayList<Playlist>();
-
-        otherUserPlaylists.add(masterPlaylist());
-
-        displayPlaylists(masterUser, "other");
-        displaySongs(masterUser.getPlaylist(0),"other");
+        displayPlaylists(otherUserPlaylists, "other");
+        displaySongs(otherUserPlaylists.getPlaylist(0),"other");
 
         initComponents();
     }
 
     public void otherPlaylists()
     {
-        ArrayList<Song> all = (otherUserPlaylists.get(0)).getList();
+        ArrayList<Song> all = (otherUserPlaylists.getPlaylist(0)).getList();
 
         Playlist elton = new Playlist("Elton John");
         Playlist beatles = new Playlist("The Beatles");
@@ -62,10 +62,10 @@ public class GUIPanel extends javax.swing.JFrame
             }
         }
 
-        otherUserPlaylists.add(beatles);
-        otherUserPlaylists.add(elton);
-        otherUserPlaylists.add(abba);
-        otherUserPlaylists.add(queen);
+        otherUserPlaylists.addPlaylist(beatles);
+        otherUserPlaylists.addPlaylist(elton);
+        otherUserPlaylists.addPlaylist(abba);
+        otherUserPlaylists.addPlaylist(queen);
     }
 
     public Playlist masterPlaylist()
@@ -226,6 +226,10 @@ public class GUIPanel extends javax.swing.JFrame
         listOtherPlaylists.setModel(otherUserPlaylistsDisplay);
         jScrollPane7.setViewportView(listOtherPlaylists);
 
+        ListSelectionModel testModel;
+        testModel = listOtherPlaylists.getSelectionModel();
+        testModel.addListSelectionListener(new OtherPlaylistSelectionHandler());
+
         listMySongs.setModel(userSongsListDisplay);
         jScrollPane5.setViewportView(listMySongs);
 
@@ -297,37 +301,37 @@ public class GUIPanel extends javax.swing.JFrame
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnNewPlaylistActionPerformed(java.awt.event.ActionEvent evt) 
+    private void btnNewPlaylistActionPerformed(java.awt.event.ActionEvent evt)
     {//GEN-FIRST:event_btnNewPlaylistActionPerformed
         System.out.println("New Playlist Pressed");
     }//GEN-LAST:event_btnNewPlaylistActionPerformed
 
-    private void btnDeletePlaylistActionPerformed(java.awt.event.ActionEvent evt) 
+    private void btnDeletePlaylistActionPerformed(java.awt.event.ActionEvent evt)
     {//GEN-FIRST:event_btnDeletePlaylistActionPerformed
         System.out.println("Delete Playlist Pressed");
     }//GEN-LAST:event_btnDeletePlaylistActionPerformed
 
-    private void btnAddToPlaylistActionPerformed(java.awt.event.ActionEvent evt) 
+    private void btnAddToPlaylistActionPerformed(java.awt.event.ActionEvent evt)
     {//GEN-FIRST:event_btnAddToPlaylistActionPerformed
         System.out.println("Add To Playlist Pressed");
     }//GEN-LAST:event_btnAddToPlaylistActionPerformed
 
-    private void btnSortByNameActionPerformed(java.awt.event.ActionEvent evt) 
+    private void btnSortByNameActionPerformed(java.awt.event.ActionEvent evt)
     {//GEN-FIRST:event_btnSortByNameActionPerformed
         System.out.println("Sort by Name Pressed");
     }//GEN-LAST:event_btnSortByNameActionPerformed
 
-    private void btnSortByArtistActionPerformed(java.awt.event.ActionEvent evt) 
+    private void btnSortByArtistActionPerformed(java.awt.event.ActionEvent evt)
     {//GEN-FIRST:event_btnSortByArtistActionPerformed
         System.out.println("Sort by Artist Pressed");
     }//GEN-LAST:event_btnSortByArtistActionPerformed
 
-    private void btnSortByGenreActionPerformed(java.awt.event.ActionEvent evt) 
+    private void btnSortByGenreActionPerformed(java.awt.event.ActionEvent evt)
     {//GEN-FIRST:event_btnSortByGenreActionPerformed
         System.out.println("Sort by Genre Pressed");
     }//GEN-LAST:event_btnSortByGenreActionPerformed
 
-    private void btnSortByTimeActionPerformed(java.awt.event.ActionEvent evt) 
+    private void btnSortByTimeActionPerformed(java.awt.event.ActionEvent evt)
     {//GEN-FIRST:event_btnSortByTimeActionPerformed
         System.out.println("Sort by Action Pressed");
     }//GEN-LAST:event_btnSortByTimeActionPerformed
@@ -386,4 +390,17 @@ public class GUIPanel extends javax.swing.JFrame
     private javax.swing.JList<String> listOtherSongs;
     private javax.swing.JList<String> listUserPlayLists;
     // End of variables declaration//GEN-END:variables
+
+    // LIST LISTENERS
+    class OtherPlaylistSelectionHandler implements ListSelectionListener {
+        public void valueChanged(ListSelectionEvent e) {
+            ListSelectionModel lsm = (ListSelectionModel)e.getSource();
+            int index = lsm.getAnchorSelectionIndex();
+            displaySongs(otherUserPlaylists.getPlaylist(index),"other");
+            listOtherSongs.setModel(otherUserSongsListDisplay);
+            jScrollPane6.revalidate();
+            jScrollPane6.repaint();
+        }
+    }
+
 }
