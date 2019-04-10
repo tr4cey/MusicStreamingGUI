@@ -141,13 +141,7 @@ public class GUIPanel extends javax.swing.JFrame
             listModel.addElement(otherUserPlaylists.get(0).getSong(i).getName());;
         }
 
-        jList5.setModel(
-            listModel
-        // new javax.swing.AbstractListModel<String>() {
-        //     String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
-        //     public int getSize() { return strings.length; }
-        //     public String getElementAt(int i) { return strings[i]; }
-        );
+        jList5.setModel(listModel);
         jScrollPane6.setViewportView(jList5);
 
         jList6.setModel(new javax.swing.AbstractListModel<String>() {
