@@ -1,10 +1,9 @@
 public class Song
 {
-    String name, artist, genre = "";
+    private String name, artist, genre = "";
 
     // length is in seconds will have a method to convert to minutes
-    int year, secLength = 0;
-    
+    private int year, secLength = 0;
 
     /**
      * Creates a song object that is to be added into a playlist
@@ -74,7 +73,15 @@ public class Song
     {
         String minSec = (secLength/60) + "";
         minSec += ":";
-        minSec += (secLength%60) + "";
+        if(secLength%60 == 0)
+        {
+            minSec += (secLength%60) + "0";
+        }
+        else
+        {
+            minSec += (secLength%60) + "";
+        }
+        
         return minSec;
     }
 }
