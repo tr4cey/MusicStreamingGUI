@@ -116,7 +116,7 @@ public class GUIPanel extends javax.swing.JFrame
     void displayPlaylists(User playlists, String location) {
         DefaultListModel<String> toDisplay  =  new DefaultListModel<String>();
         ArrayList<Playlist> listOfPlaylists = playlists.getAllPlaylists();
-
+        System.out.println(listOfPlaylists.size());
         for (int i = 0; i < listOfPlaylists.size(); i++) {
             toDisplay.addElement(listOfPlaylists.get(i).getPlaylistName());
         }
@@ -165,7 +165,7 @@ public class GUIPanel extends javax.swing.JFrame
     }
 
 
-    void addSongToUserPLaylist() {
+    void addSongToUserPlaylist() {
         if (otherSongSelected != -1 && userPlaylistSelected != -1)
         {
             masterUser.getPlaylist(userPlaylistSelected).addSong(otherUserPlaylists.getPlaylist(otherUserPlaylistSelected).getSong(otherSongSelected));
@@ -358,11 +358,26 @@ public class GUIPanel extends javax.swing.JFrame
     private void btnDeletePlaylistActionPerformed(java.awt.event.ActionEvent evt)
     {//GEN-FIRST:event_btnDeletePlaylistActionPerformed
         System.out.println("Delete Playlist Pressed");
+        masterUser.getAllPlaylists().remove(userPlaylistSelected);
+        
+        if (masterUser.getAllPlaylists().isEmpty()) {
+            userPlaylistSelected = -1;
+        }
+        
+        displayPlaylists(masterUser, "user");
+        listUserPlaylists.setModel(userPlaylistsDisplay);
+        jScrollPane8.revalidate();
+        jScrollPane8.repaint();
+
+        displaySongsWithStats(new Playlist(), "user");
+        listMySongs.setModel(userSongsListDisplay);
+        jScrollPane5.revalidate();
+        jScrollPane5.repaint();
     }//GEN-LAST:event_btnDeletePlaylistActionPerformed
 
     private void btnAddToPlaylistActionPerformed(java.awt.event.ActionEvent evt)
     {//GEN-FIRST:event_btnAddToPlaylistActionPerformed
-        addSongToUserPLaylist();
+        addSongToUserPlaylist();
         displaySongsWithStats(masterUser.getPlaylist(userPlaylistSelected),"user");
         listMySongs.setModel(userSongsListDisplay);
         jScrollPane5.revalidate();
@@ -481,11 +496,14 @@ public class GUIPanel extends javax.swing.JFrame
         public void valueChanged(ListSelectionEvent e) {
             ListSelectionModel lsm = (ListSelectionModel)e.getSource();
             int index = lsm.getAnchorSelectionIndex();
-            userPlaylistSelected = index;
-            displaySongsWithStats(masterUser.getPlaylist(index),"user");
-            listMySongs.setModel(userSongsListDisplay);
-            jScrollPane5.revalidate();
-            jScrollPane5.repaint();
+            System.out.println("YOUR MOM SUCKED YOUR DAD'S DICK: " + index);
+                userPlaylistSelected = index;
+                if (!masterUser.getAllPlaylists().isEmpty()) {
+                displaySongsWithStats(masterUser.getPlaylist(index),"user");
+                listMySongs.setModel(userSongsListDisplay);
+                jScrollPane5.revalidate();
+                jScrollPane5.repaint();
+            }
         }
     }
 
