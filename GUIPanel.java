@@ -356,7 +356,6 @@ public class GUIPanel extends javax.swing.JFrame
 
     private void btnDeletePlaylistActionPerformed(java.awt.event.ActionEvent evt)
     {//GEN-FIRST:event_btnDeletePlaylistActionPerformed
-        System.out.println("Delete Playlist Pressed");
         masterUser.getAllPlaylists().remove(userPlaylistSelected);
 
         if (masterUser.getAllPlaylists().isEmpty()) {
@@ -496,12 +495,12 @@ public class GUIPanel extends javax.swing.JFrame
             ListSelectionModel lsm = (ListSelectionModel)e.getSource();
             int index = lsm.getAnchorSelectionIndex();
                 userPlaylistSelected = index;
-                if (!masterUser.getAllPlaylists().isEmpty()) {
-                displaySongsWithStats(masterUser.getPlaylist(index),"user");
-                listMySongs.setModel(userSongsListDisplay);
-                jScrollPane5.revalidate();
-                jScrollPane5.repaint();
-            }
+                if (!masterUser.getAllPlaylists().isEmpty() && index != masterUser.getAllPlaylists().size()) {
+                    displaySongsWithStats(masterUser.getPlaylist(index),"user");
+                    listMySongs.setModel(userSongsListDisplay);
+                    jScrollPane5.revalidate();
+                    jScrollPane5.repaint();
+                }
         }
     }
 

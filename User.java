@@ -44,8 +44,8 @@ public class User {
      * @param index the particular playlist to be selected
      * @return the playlist that the user wants
      */
-    public Playlist getPlaylist(int index){
-        return this.playlists.get(index);
+    public Playlist getPlaylist(int index) {
+            return this.playlists.get(index);
     }
 
     /**
