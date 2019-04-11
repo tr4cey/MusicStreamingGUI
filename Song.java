@@ -39,7 +39,15 @@ public class Song
     {
         String minSec = (secLength/60) + "";
         minSec += ":";
-        minSec += (secLength%60) + "";
+        if(secLength%60 == 0)
+        {
+            minSec += (secLength%60) + "0";
+        }
+        else
+        {
+            minSec += (secLength%60) + "";
+        }
+        
         return minSec;
     }
 }
