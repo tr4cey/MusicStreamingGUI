@@ -6,8 +6,8 @@ public class User {
     private ArrayList<Playlist> playlists;
 
     /**
-     * The user that will be making the
-     * playlists
+     * The a new default user that will be making the playlists
+     * 
      */
     public User(){
         userName = "John Doe";
@@ -24,25 +24,25 @@ public class User {
     }
 
     /**
-     * Gets the username of the user
-     * @return the username
+     * Gets the username of the current user
+     * @return userName
      */
     public String getUserName(){
         return this.userName;
     }
 
     /**
-     * Returns all the playlists of the user
+     * Gets all the playlists of the current user
+     * @return An ArrayList of Playlist objects
      */
     public ArrayList<Playlist> getAllPlaylists(){
         return this.playlists;
     }
 
     /**
-     * Gets a particular playlist from all
-     * the playlists that the user has
+     * Gets a particular playlist from all the playlists that the user has
      * @param index the particular playlist to be selected
-     * @return the playlist that the user wants
+     * @return the playlist that the user selects
      */
     public Playlist getPlaylist(int index) {
             return this.playlists.get(index);
