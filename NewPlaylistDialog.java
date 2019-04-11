@@ -1,11 +1,11 @@
 
 import java.awt.*;
 
-public class NewPlaylistDialog extends javax.swing.JDialog 
+public class NewPlaylistDialog extends javax.swing.JDialog
 {
     String name = "";
-    
-    public NewPlaylistDialog(java.awt.Frame parent, boolean modal) 
+
+    public NewPlaylistDialog(java.awt.Frame parent, boolean modal)
     {
         super(parent, modal);
         setModalityType(Dialog.DEFAULT_MODALITY_TYPE);
@@ -64,22 +64,21 @@ public class NewPlaylistDialog extends javax.swing.JDialog
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnConfirmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfirmActionPerformed
-        System.out.println("Confirmed");
         name = txtPlaylistName.getText();
         this.dispose();
     }//GEN-LAST:event_btnConfirmActionPerformed
-    
+
     public String getName()
     {
         return name;
     }
-    
-    public static void main(String args[]) 
+
+    public static void main(String args[])
     {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {

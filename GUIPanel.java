@@ -171,8 +171,6 @@ public class GUIPanel extends javax.swing.JFrame
         }
     }
 
-
-
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
@@ -205,8 +203,6 @@ public class GUIPanel extends javax.swing.JFrame
 
         jLabel1.setText("My Playlist");
         jLabel1.setToolTipText("");
-
-        jLabel2.setText("Playlist Name");
 
         btnSortByName.setText("Name");
         btnSortByName.addActionListener(new java.awt.event.ActionListener() {
@@ -362,6 +358,8 @@ public class GUIPanel extends javax.swing.JFrame
             userPlaylistSelected = -1;
         }
 
+        jLabel2.setText("");
+
         displayPlaylists(masterUser, "user");
         listUserPlaylists.setModel(userPlaylistsDisplay);
         jScrollPane8.revalidate();
@@ -497,6 +495,7 @@ public class GUIPanel extends javax.swing.JFrame
                 userPlaylistSelected = index;
                 if (!masterUser.getAllPlaylists().isEmpty() && index != masterUser.getAllPlaylists().size()) {
                     displaySongsWithStats(masterUser.getPlaylist(index),"user");
+                    jLabel2.setText(masterUser.getPlaylist(index).name);
                     listMySongs.setModel(userSongsListDisplay);
                     jScrollPane5.revalidate();
                     jScrollPane5.repaint();
