@@ -1,13 +1,12 @@
 import java.util.ArrayList;
 
 public class User {
-    
+
     private String userName;
     private ArrayList<Playlist> playlists;
 
 
     public User(){
-
         userName = "John Doe";
         playlists = new ArrayList<Playlist>();
     }
@@ -29,8 +28,12 @@ public class User {
         return this.playlists.get(index);
     }
 
-    public void makePlaylist(){
-        this.playlists.add(new Playlist());
+    public void makePlaylist(String playlistName){
+        this.playlists.add(new Playlist(playlistName));
+    }
+
+    public void addPlaylist(Playlist playlist){
+        this.playlists.add(playlist);
     }
 
     public void removePlaylist(Playlist playlist){

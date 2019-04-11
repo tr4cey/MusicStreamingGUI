@@ -1,50 +1,44 @@
-Blackbird_The Beatles_1968_2:18_Rock_
-Dear Prudence_The Beatles_1968_3:55_Rock_
-Glass Onion_The Beatles_1968_2:17_Rock_
-Helter Skelter_The Beatles_1968_4:29_Rock_
-Day Tripper_The Beatles_1988_2:49_Rock_
-Paperback Writer_The Beatles_1988_2:18_Rock_
-All You Need Is Love_The Beatles_1967_3:47_Rock_
-Let It Be_The Beatles_1970_3:50_Rock_
-Get Back_The Beatles_1970_3:09_Rock_
-Come Together_The Beatles_1969_4:19_Rock_
-Here Comes The Sun_The Beatles_1969_3:05_Rock_
-Because_The Beatles_1969_2:45_Rock_
-Sun King_The Beatles_1969_2:26_Rock_
-Carry That Weight_The Beatles_1969_1:36_Rock_
-Yellow Submarine_The Beatles_1969_2:39_Rock_
-Magical Mystery Tour_The Beatles_1967_2:50_Rock_
-Penny Lane_The Beatles_1967_3:00_Rock_
-Eleanor Rigby_The Beatles_1966_2:06_Rock_
-Waterloo_ABBA_1974_2:49_Disco_
-Honey, Honey_ABBA_1974_2:56_Disco_
-Mamma Mia_ABBA_1975_3:35_Disco_
-S.O.S._ABBA_1975_3:24_Disco_
-Dancing Queen_ABBA_1976_3:51_Disco_
-My Love, My Life_ABBA_1976_3:52_Disco_
-Fernando_ABBA_1976_4:16_Disco_
-I Wonder_ABBA_1977_4:35_Disco_
-Voulez-Vous_ABBA_1979_5:09_Disco_
-I Have A Dream_ABBA_1979_4:46_Disco_
-Angel Eyes_ABBA_1979_4:23_Disco_
-Chiquitita_ABBA_1979_5:27_Disco_
-Super Trouper_ABBA_1980_4:15_Disco_
-Andante, Andante_ABBA_1980_4:39_Disco_
-Our Last Summer_ABBA_1980_4:20_Disco_
-One Of Us_ABBA_1981_3:57_Disco_
-Bohemian Rhapsody_Queen_1975_5:55_Classic Rock_
-Killer Queen_Queen_1974_3:00_Classic Rock_
-Somebody To Love_Queen_1976_4:56_Classic Rock_
-We Will Rock You_Queen_1977_2:02_Classic Rock_
-Bicycle Race_Queen_1978_3:02_Classic Rock_
-Body Language_Queen_1982_4:33_Classic Rock_
-Cool Cat_Queen_1982_3:29_Classic Rock_
-Dancer_Queen_1982_3:49_Classic Rock_
-Honky Cat_Elton John_1972_5:13_Glam Rock_
-Rocket Man_Elton John_1972_4:42_Glam Rock_
-Your Song_Elton John_1970_4:01_Glam_Rock_
-Tiny Dancer_Elton John_1971_6:17_Glam Rock_
-Crocodile Rock_Elton John_1973_3:55_Glam Rock_
-Harmony_Elton John_1973_2:45_Glam Rock_
-Grey Seal_Elton John_1973_4:00_Glam Rock_
-Sandstorm_Darude_2007_3:45_EDM_
+Blackbird_The Beatles_1968_138_Rock
+Dear Prudence_The Beatles_1968_235_Rock
+Glass Onion_The Beatles_1968_137_Rock
+Helter Skelter_The Beatles_1968_269_Rock
+Day Tripper_The Beatles_1988_169_Rock
+Paperback Writer_The Beatles_1988_138_Rock
+All You Need Is Love_The Beatles_1967_227_Rock
+Let It Be_The Beatles_1970_230_Rock
+Get Back_The Beatles_1970_189_Rock
+Come Together_The Beatles_1969_259_Rock
+Here Comes The Sun_The Beatles_1969_185_Rock
+Because_The Beatles_1969_165_Rock
+Sun King_The Beatles_1969_146_Rock
+Carry That Weight_The Beatles_1969_96_Rock
+Yellow Submarine_The Beatles_1969_159_Rock
+Magical Mystery Tour_The Beatles_1967_170_Rock
+Penny Lane_The Beatles_1967_180_Rock
+Eleanor Rigby_The Beatles_1966_126_Rock
+Waterloo_ABBA_1974_169_Disco
+Honey, Honey_ABBA_1974_176_Disco
+Mamma Mia_ABBA_1975_215_Disco
+S.O.S._ABBA_1975_204_Disco
+Dancing Queen_ABBA_1976_231_Disco
+My Love, My Life_ABBA_1976_232_Disco
+Fernando_ABBA_1976_256_Disco
+I Wonder_ABBA_1977_275_Disco
+Voulez-Vous_ABBA_1979_309_Disco
+I Have A Dream_ABBA_1979_286_Disco
+Angel Eyes_ABBA_1979_263_Disco
+Chiquitita_ABBA_1979_327_Disco
+Super Trouper_ABBA_1980_235_Disco
+Andante, Andante_ABBA_1980_279_Disco
+Our Last Summer_ABBA_1980_260_Disco
+One Of Us_ABBA_1981_237_Disco
+Bohemian Rhapsody_Queen_1975_355_Classic Rock
+Killer Queen_Queen_1974_180_Classic Rock
+Somebody To Love_Queen_1976_296_Classic Rock
+We Will Rock You_Queen_1977_122_Classic Rock
+Bicycle Race_Queen_1978_182_Classic Rock
+Body Language_Queen_1982_283_Classic Rock
+Cool Cat_Queen_1982_209_Classic Rock
+Dancer_Queen_1982_229_Classic Rock
+Honky Cat_Elton John_1972_313_Glam Rock
+Rocket Man_Elton John_1972_282_Glam Rock
