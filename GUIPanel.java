@@ -192,6 +192,7 @@ public class GUIPanel extends javax.swing.JFrame
         jScrollPane8 = new javax.swing.JScrollPane();
         listUserPlaylists = new javax.swing.JList<>();
         btnDeleteSong = new javax.swing.JButton();
+        btnSave = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -255,6 +256,13 @@ public class GUIPanel extends javax.swing.JFrame
             }
         });
 
+        btnSave.setText("Save User");
+        btnSave.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSaveActionPerformed(evt);
+            }
+        });
+
         listOtherSongs.setModel(otherUserSongsListDisplay);
         jScrollPane6.setViewportView(listOtherSongs);
 
@@ -311,10 +319,12 @@ public class GUIPanel extends javax.swing.JFrame
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(layout.createSequentialGroup()
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(btnDeleteSong))
+                                .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 450, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(0, 0, Short.MAX_VALUE)
-                                .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 450, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGap(3, 3, 3)
+                                .addComponent(btnSave)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(btnDeleteSong)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addComponent(btnAddToPlaylist, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
@@ -346,7 +356,8 @@ public class GUIPanel extends javax.swing.JFrame
                     .addComponent(btnNewPlaylist)
                     .addComponent(btnAddToPlaylist)
                     .addComponent(btnDeletePlaylist)
-                    .addComponent(btnDeleteSong))
+                    .addComponent(btnDeleteSong)
+                    .addComponent(btnSave))
                 .addContainerGap())
         );
 
@@ -440,7 +451,12 @@ public class GUIPanel extends javax.swing.JFrame
 
     private void btnDeleteSongActionPerformed(java.awt.event.ActionEvent evt) 
     {                                              
-        System.out.println("Button Pressed");   
+        System.out.println("Delete Song Button Pressed");   
+    }
+
+    private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) 
+    {                                        
+        System.out.println("Save Button Pressed"); 
     }
 
     public static void main(String args[])
@@ -487,6 +503,7 @@ public class GUIPanel extends javax.swing.JFrame
     private javax.swing.JButton btnSortByGenre;
     private javax.swing.JButton btnSortByName;
     private javax.swing.JButton btnSortByTime;
+    private javax.swing.JButton btnSave;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane5;
