@@ -6,8 +6,8 @@ public class User {
     private ArrayList<Playlist> playlists;
 
     /**
-     * The user that will be making the 
-     * playlists 
+     * The user that will be making the
+     * playlists
      */
     public User(){
         userName = "John Doe";
@@ -15,7 +15,7 @@ public class User {
     }
 
     /**
-     * Creates a user with a username already defined 
+     * Creates a user with a username already defined
      * @param userName the name of the user
      */
     public User(String userName){
@@ -24,24 +24,24 @@ public class User {
     }
 
     /**
-     * Gets the username of the user 
-     * @return the username 
+     * Gets the username of the user
+     * @return the username
      */
     public String getUserName(){
         return this.userName;
     }
 
     /**
-     * Returns all the playlists of the user 
+     * Returns all the playlists of the user
      */
     public ArrayList<Playlist> getAllPlaylists(){
         return this.playlists;
     }
 
     /**
-     * Gets a particular playlist from all 
-     * the playlists that the user has 
-     * @param index the particular playlist to be selected 
+     * Gets a particular playlist from all
+     * the playlists that the user has
+     * @param index the particular playlist to be selected
      * @return the playlist that the user wants
      */
     public Playlist getPlaylist(int index){
@@ -49,14 +49,11 @@ public class User {
     }
 
     /**
-     * Creates a playlist that is then 
+     * Creates a playlist that is then
      * added to the list of user's other playlists
      */
     public void makePlaylist(){
         this.playlists.add(new Playlist());
-  
-    public void makePlaylist(String playlistName){
-        this.playlists.add(new Playlist(playlistName));
     }
 
     public void addPlaylist(Playlist playlist){
@@ -64,8 +61,8 @@ public class User {
     }
 
     /**
-     * Removes a particular playlist from the user's 
-     * plaulist list. 
+     * Removes a particular playlist from the user's
+     * plaulist list.
      * @param playlist the particular playlist to be removed
      */
     public void removePlaylist(Playlist playlist){

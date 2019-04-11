@@ -116,7 +116,6 @@ public class GUIPanel extends javax.swing.JFrame
     void displayPlaylists(User playlists, String location) {
         DefaultListModel<String> toDisplay  =  new DefaultListModel<String>();
         ArrayList<Playlist> listOfPlaylists = playlists.getAllPlaylists();
-        System.out.println(listOfPlaylists.size());
         for (int i = 0; i < listOfPlaylists.size(); i++) {
             toDisplay.addElement(listOfPlaylists.get(i).getPlaylistName());
         }
@@ -149,7 +148,7 @@ public class GUIPanel extends javax.swing.JFrame
 
         for (int i = 0; i < songs.getSize(); i++) {
             toDisplay.addElement(
-                songs.getSong(i).getName() + 
+                songs.getSong(i).getName() +
                 "  Time: " + songs.getSong(i).getLengthMin() +
                 "  Artist: " + songs.getSong(i).getArtist() +
                 "  Genre: " + songs.getSong(i).getGenre()
@@ -344,7 +343,7 @@ public class GUIPanel extends javax.swing.JFrame
     {//GEN-FIRST:event_btnNewPlaylistActionPerformed
         NewPlaylistDialog nameFrame = new NewPlaylistDialog(this, true);
         nameFrame.setVisible(true);
-        
+
         String playlistName = nameFrame.getName();
 
         masterUser.addPlaylist(new Playlist(playlistName));
@@ -359,11 +358,11 @@ public class GUIPanel extends javax.swing.JFrame
     {//GEN-FIRST:event_btnDeletePlaylistActionPerformed
         System.out.println("Delete Playlist Pressed");
         masterUser.getAllPlaylists().remove(userPlaylistSelected);
-        
+
         if (masterUser.getAllPlaylists().isEmpty()) {
             userPlaylistSelected = -1;
         }
-        
+
         displayPlaylists(masterUser, "user");
         listUserPlaylists.setModel(userPlaylistsDisplay);
         jScrollPane8.revalidate();
@@ -491,12 +490,11 @@ public class GUIPanel extends javax.swing.JFrame
             jScrollPane6.repaint();
         }
     }
-    
+
     class UserPlaylistSelectionHandler implements ListSelectionListener {
         public void valueChanged(ListSelectionEvent e) {
             ListSelectionModel lsm = (ListSelectionModel)e.getSource();
             int index = lsm.getAnchorSelectionIndex();
-            System.out.println("YOUR MOM SUCKED YOUR DAD'S DICK: " + index);
                 userPlaylistSelected = index;
                 if (!masterUser.getAllPlaylists().isEmpty()) {
                 displaySongsWithStats(masterUser.getPlaylist(index),"user");
