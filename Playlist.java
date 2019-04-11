@@ -10,6 +10,23 @@ public class Playlist implements Serializable
     int playlistLength;
     int playlistTime;
 
+    /**
+     * Creates a default Playlist Object
+     * Playlists store an ArrayList of Song Objects
+     */
+    public Playlist()
+    {
+        this.name="New Playlist";
+        playlistLength = 0;
+        playlistTime = 0;
+        songs = new ArrayList<Song>();
+    }
+
+    /**
+     * Creates a Playlist object with a given name
+     * Playlists store an ArrayList of Song Objects
+     * @param name The name of the Playlist
+     */
     public Playlist(String name)
     {
         this.name=name;
@@ -18,18 +35,10 @@ public class Playlist implements Serializable
         songs = new ArrayList<Song>();
     }
 
-    public Playlist()
-    {
-        this.name="New Playlist";
-        playlistLength = 0;
-        playlistTime = 0;
-        songs = new ArrayList<Song>();
-
-    }
-
     /**
-     * Adds the song to the playllst
+     * Adds the given song to the Playlist
      * @param song the song being added
+     * @see Song#Song(String, String, int, int, String)
      */
     public void addSong(Song song)
     {
@@ -41,9 +50,8 @@ public class Playlist implements Serializable
     }
 
     /**
-     * Returns the amount of songs that are present
-     * in the playlist
-     * @return the number of songs in the playlist
+     * Removes a Song from the Playlist at a specific Index
+     * @param index 
      */
     public void removeSong(int index)
     {
@@ -53,6 +61,10 @@ public class Playlist implements Serializable
         }
     }
 
+    /**
+     * Sorts the Playlist by the given String
+     * @param sortBy String for sorting
+     */
     public void sortPlaylist(String sortBy)
     {
         if (sortBy.toLowerCase().equals("name")) {
@@ -72,17 +84,28 @@ public class Playlist implements Serializable
         }
     }
 
-    //Getters and Setters
+    /**
+     * Gets the name of PLaylist
+     * @return playlist name
+     */
     public String getPlaylistName()
     {
         return this.name;
     }
 
+    /**
+     * Sets the Playlist name
+     * @param newName Name of Plaulist
+     */
     public void setPlaylistName(String newName)
     {
         this.name = newName;
     }
-
+    
+    /**
+     * Converts runTime of Playlist from seconds to minutes 
+     * @return Playlist runTime in seconds
+     */
     public String getPlaylistRuntimeString()
     {
         String minSec = (playlistTime/60) + "";
@@ -93,8 +116,8 @@ public class Playlist implements Serializable
 
      /**
      * Gets the length of the playlist in seconds
-     * @param playlist the playlist
-     * @return the length of the playlist in seconds
+     * @param playlist The Playlist
+     * @return the runTime of the playlist in seconds
      */
     public int getPlaylistRunTime(ArrayList<Song> playlist)
     {
@@ -107,20 +130,29 @@ public class Playlist implements Serializable
     }
 
     /**
-     * Gets the song from the playlist
-     * @param index the index of the song needed
-     * @return the song
+     * Gets a Song from a specific index of the playlist
+     * @param index index of the song
+     * @return song
      */
     public Song getSong(int index)
     {
         return this.songs.get(index);
     }
 
+    /**
+     * Returns a reference to the ArrayList of Songs
+     * @return songs
+     */
     public ArrayList<Song> getList()
     {
         return songs;
     }
 
+    /**
+     * Returns the amount of songs that are present
+     * in the playlist
+     * @return the number of songs in the playlist
+     */
     public int getSize()
     {
         return songs.size();

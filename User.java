@@ -6,8 +6,7 @@ public class User {
     private ArrayList<Playlist> playlists;
 
     /**
-     * The a new default user that will be making the playlists
-     * 
+     * Creates a default User object that will be making the playlists
      */
     public User(){
         userName = "John Doe";
@@ -15,8 +14,10 @@ public class User {
     }
 
     /**
-     * Creates a user with a username already defined
+     * Creates a User object with a given username
+     * User objects make and contain playlists
      * @param userName the name of the user
+     * @see Playlist#Playlist(String)
      */
     public User(String userName){
         this.userName = userName;
@@ -34,7 +35,6 @@ public class User {
     /**
      * Gets all the playlists of the current user
      * @return An ArrayList of Playlist objects
-     * @see Playlist
      */
     public ArrayList<Playlist> getAllPlaylists(){
         return this.playlists;
@@ -60,7 +60,7 @@ public class User {
 
     /**
      * Adds an already populated Playlist object to the
-     * current User's list of Playlists
+     * current User's playlist list
      * @param playlist
      * @see Playlist
      */
@@ -69,7 +69,7 @@ public class User {
     }
 
     /**
-     * Removes a particular playlist from the user's playlist list.
+     * Removes a specific playlist from the user's playlist list.
      * @param playlist the particular playlist to be removed
      */
     public void removePlaylist(Playlist playlist){

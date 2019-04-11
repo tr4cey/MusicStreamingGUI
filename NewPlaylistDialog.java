@@ -1,4 +1,3 @@
-
 import java.awt.*;
 
 public class NewPlaylistDialog extends javax.swing.JDialog

@@ -26,7 +26,7 @@ public class Song implements Serializable
 
     /**
      * Returns the name of the artist
-     * @return the name of the artist
+     * @return artist
      */
     public String getArtist()
     {
@@ -35,7 +35,7 @@ public class Song implements Serializable
 
     /**
      * Returns the name of the song
-     * @return the name of the song
+     * @return name
      */
     public String getName()
     {
@@ -43,8 +43,8 @@ public class Song implements Serializable
     }
 
     /**
-     * Gets the genre of the song
-     * @return the genre of the song
+     * Returns the genre of the song
+     * @return genre
      */
     public String getGenre()
     {
@@ -52,7 +52,7 @@ public class Song implements Serializable
     }
     /**
      * Returns the year the song was released
-     * @return the year the song was released
+     * @return year
      */
     public int getYear()
     {
@@ -60,7 +60,7 @@ public class Song implements Serializable
     }
     /**
      * Gets the length of the song in seconds
-     * @return the length of the song in seconds
+     * @return secLength
      */
     public int getLengthSec()
     {
@@ -69,7 +69,7 @@ public class Song implements Serializable
 
     /**
      * Returns the length of the song in minutes
-     * @return the length of the song
+     * @return minSec
      */
     public String getLengthMin()
     {
