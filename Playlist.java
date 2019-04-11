@@ -46,7 +46,8 @@ public class Playlist
      */
     public void removeSong(int index)
     {
-        if (playlistLength/60 > 60) {
+        if (playlistTime/60 > 60) {
+            playlistTime -= songs.get(index).getLengthSec();
             songs.remove(index);
         }
     }

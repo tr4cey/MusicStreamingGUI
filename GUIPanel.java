@@ -14,6 +14,7 @@ public class GUIPanel extends javax.swing.JFrame
     int otherUserPlaylistSelected = 0;
     int otherSongSelected = -1;
     int userPlaylistSelected = -1;
+    int userSongSelected = -1;
 
     // Song titles and playlist names are added to these for display
     private DefaultListModel<String> userSongsListDisplay = new DefaultListModel<String>();
@@ -280,6 +281,10 @@ public class GUIPanel extends javax.swing.JFrame
         listMySongs.setModel(userSongsListDisplay);
         jScrollPane5.setViewportView(listMySongs);
 
+        ListSelectionModel userSongSelected;
+        userSongSelected = listMySongs.getSelectionModel();
+        userSongSelected.addListSelectionListener(new UserSongSelectionHandler());
+
         listUserPlaylists.setModel(userPlaylistsDisplay);
         jScrollPane8.setViewportView(listUserPlaylists);
 
@@ -403,10 +408,12 @@ public class GUIPanel extends javax.swing.JFrame
     private void btnAddToPlaylistActionPerformed(java.awt.event.ActionEvent evt)
     {//GEN-FIRST:event_btnAddToPlaylistActionPerformed
         addSongToUserPlaylist();
-        displaySongsWithStats(masterUser.getPlaylist(userPlaylistSelected),"user");
-        listMySongs.setModel(userSongsListDisplay);
-        jScrollPane5.revalidate();
-        jScrollPane5.repaint();
+        if (userPlaylistSelected != -1 && userPlaylistSelected < masterUser.getAllPlaylists().size()) {
+            displaySongsWithStats(masterUser.getPlaylist(userPlaylistSelected),"user");
+            listMySongs.setModel(userSongsListDisplay);
+            jScrollPane5.revalidate();
+            jScrollPane5.repaint();
+        }
     }//GEN-LAST:event_btnAddToPlaylistActionPerformed
 
     private void btnSortByNameActionPerformed(java.awt.event.ActionEvent evt)
@@ -449,14 +456,21 @@ public class GUIPanel extends javax.swing.JFrame
         jScrollPane5.repaint();
     }//GEN-LAST:event_btnSortByTimeActionPerformed
 
-    private void btnDeleteSongActionPerformed(java.awt.event.ActionEvent evt) 
-    {                                              
-        System.out.println("Delete Song Button Pressed");   
+    private void btnDeleteSongActionPerformed(java.awt.event.ActionEvent evt)
+    {
+        if (userPlaylistSelected != -1 && userSongSelected != -1) {
+            masterUser.getPlaylist(userPlaylistSelected).removeSong(userSongSelected);
+
+            displaySongsWithStats(masterUser.getPlaylist(userPlaylistSelected),"user");
+            listMySongs.setModel(userSongsListDisplay);
+            jScrollPane5.revalidate();
+            jScrollPane5.repaint();
+        }
     }
 
-    private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) 
-    {                                        
-        System.out.println("Save Button Pressed"); 
+    private void btnSaveActionPerformed(java.awt.event.ActionEvent evt)
+    {
+        System.out.println("Save Button Pressed");
     }
 
     public static void main(String args[])
@@ -549,6 +563,14 @@ public class GUIPanel extends javax.swing.JFrame
             ListSelectionModel lsm = (ListSelectionModel)e.getSource();
             int index = lsm.getAnchorSelectionIndex();
             otherSongSelected = index;
+        }
+    }
+
+    class UserSongSelectionHandler implements ListSelectionListener {
+        public void valueChanged(ListSelectionEvent e) {
+            ListSelectionModel lsm = (ListSelectionModel)e.getSource();
+            int index = lsm.getAnchorSelectionIndex();
+            userSongSelected = index;
         }
     }
 }
