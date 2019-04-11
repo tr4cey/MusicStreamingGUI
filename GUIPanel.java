@@ -191,6 +191,7 @@ public class GUIPanel extends javax.swing.JFrame
         listMySongs = new javax.swing.JList<>();
         jScrollPane8 = new javax.swing.JScrollPane();
         listUserPlaylists = new javax.swing.JList<>();
+        btnDeleteSong = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -246,6 +247,14 @@ public class GUIPanel extends javax.swing.JFrame
             }
         });
 
+        btnDeleteSong.setText("Delete Song");
+        btnDeleteSong.setToolTipText("");
+        btnDeleteSong.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDeleteSongActionPerformed(evt);
+            }
+        });
+
         listOtherSongs.setModel(otherUserSongsListDisplay);
         jScrollPane6.setViewportView(listOtherSongs);
 
@@ -283,11 +292,11 @@ public class GUIPanel extends javax.swing.JFrame
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel1))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jLabel1)
+                            .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel2)
                         .addGap(55, 55, 55)
                         .addComponent(btnSortByName, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -296,13 +305,21 @@ public class GUIPanel extends javax.swing.JFrame
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnSortByGenre, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnSortByTime, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jScrollPane5))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnAddToPlaylist, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jScrollPane6)
-                    .addComponent(jScrollPane7))
+                        .addComponent(btnSortByTime, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(19, 19, 19))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(btnDeleteSong))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 450, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(btnAddToPlaylist, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
+                    .addComponent(jScrollPane7)
+                    .addComponent(jScrollPane6))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -322,13 +339,14 @@ public class GUIPanel extends javax.swing.JFrame
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jScrollPane6, javax.swing.GroupLayout.DEFAULT_SIZE, 301, Short.MAX_VALUE))
+                        .addComponent(jScrollPane6, javax.swing.GroupLayout.DEFAULT_SIZE, 303, Short.MAX_VALUE))
                     .addComponent(jScrollPane8))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnNewPlaylist)
                     .addComponent(btnAddToPlaylist)
-                    .addComponent(btnDeletePlaylist))
+                    .addComponent(btnDeletePlaylist)
+                    .addComponent(btnDeleteSong))
                 .addContainerGap())
         );
 
@@ -420,6 +438,11 @@ public class GUIPanel extends javax.swing.JFrame
         jScrollPane5.repaint();
     }//GEN-LAST:event_btnSortByTimeActionPerformed
 
+    private void btnDeleteSongActionPerformed(java.awt.event.ActionEvent evt) 
+    {                                              
+        System.out.println("Button Pressed");   
+    }
+
     public static void main(String args[])
     {
         /* Set the Nimbus look and feel */
@@ -460,6 +483,7 @@ public class GUIPanel extends javax.swing.JFrame
     private javax.swing.JButton btnDeletePlaylist;
     private javax.swing.JButton btnNewPlaylist;
     private javax.swing.JButton btnSortByArtist;
+    private javax.swing.JButton btnDeleteSong;
     private javax.swing.JButton btnSortByGenre;
     private javax.swing.JButton btnSortByName;
     private javax.swing.JButton btnSortByTime;
