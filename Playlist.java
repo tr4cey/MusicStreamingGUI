@@ -1,8 +1,9 @@
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
+import java.io.Serializable;
 
-public class Playlist
+public class Playlist implements Serializable
 {
     private ArrayList<Song> songs;
     String name;

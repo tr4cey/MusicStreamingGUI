@@ -1,10 +1,13 @@
 import java.io.*;
 import java.util.*;
-
+import java.nio.file.*;
+import static java.nio.file.StandardOpenOption.APPEND;
+import static java.nio.file.StandardOpenOption.CREATE;
 import javax.swing.DefaultListModel;
 import javax.swing.*;
-
 import javax.swing.event.*;
+
+import com.sun.org.apache.xpath.internal.SourceTree;
 
 
 public class GUIPanel extends javax.swing.JFrame
@@ -15,6 +18,8 @@ public class GUIPanel extends javax.swing.JFrame
     int otherSongSelected = -1;
     int userPlaylistSelected = -1;
     int userSongSelected = -1;
+
+    static Path p = Paths.get("numObj.txt");
 
     // Song titles and playlist names are added to these for display
     private DefaultListModel<String> userSongsListDisplay = new DefaultListModel<String>();
@@ -36,6 +41,13 @@ public class GUIPanel extends javax.swing.JFrame
         displaySongs(otherUserPlaylists.getPlaylist(0),"other");
 
         initComponents();
+
+        try{
+            loadPlaylists();
+        }
+        catch (Exception e){
+            System.err.print("Unable to load playlists");
+        }
     }
 
     public void otherPlaylists()
@@ -169,6 +181,13 @@ public class GUIPanel extends javax.swing.JFrame
         if (otherSongSelected != -1 && userPlaylistSelected != -1)
         {
             masterUser.getPlaylist(userPlaylistSelected).addSong(otherUserPlaylists.getPlaylist(otherUserPlaylistSelected).getSong(otherSongSelected));
+            
+            //saving
+            try {
+                savePlaylists();
+            } catch (Exception ex) {
+                System.err.print("Error, could not save playlists");
+            }
         }
     }
 
@@ -382,6 +401,13 @@ public class GUIPanel extends javax.swing.JFrame
         listUserPlaylists.setModel(userPlaylistsDisplay);
         jScrollPane8.revalidate();
         jScrollPane8.repaint();
+
+        //saving
+        try {
+            savePlaylists();
+        } catch (Exception ex) {
+            System.err.print("Error, could not save playlists");
+        }
     }//GEN-LAST:event_btnNewPlaylistActionPerformed
 
     private void btnDeletePlaylistActionPerformed(java.awt.event.ActionEvent evt)
@@ -403,6 +429,13 @@ public class GUIPanel extends javax.swing.JFrame
         listMySongs.setModel(userSongsListDisplay);
         jScrollPane5.revalidate();
         jScrollPane5.repaint();
+
+        //saving
+        try {
+            savePlaylists();
+        } catch (Exception ex) {
+            System.err.print("Error, could not save playlists");
+        }
     }//GEN-LAST:event_btnDeletePlaylistActionPerformed
 
     private void btnAddToPlaylistActionPerformed(java.awt.event.ActionEvent evt)
@@ -465,12 +498,103 @@ public class GUIPanel extends javax.swing.JFrame
             listMySongs.setModel(userSongsListDisplay);
             jScrollPane5.revalidate();
             jScrollPane5.repaint();
+
+            //saving
+            try {
+                savePlaylists();
+            } catch (Exception ex) {
+                System.err.print("Error, could not save playlists");
+            } 
         }
     }
 
-    private void btnSaveActionPerformed(java.awt.event.ActionEvent evt)
-    {
-        System.out.println("Save Button Pressed");
+    private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) 
+    {                        
+        //saving                
+        try {
+            savePlaylists();
+        } catch (Exception ex) {
+            System.err.print("Error, could not save playlists");
+        }
+
+    }
+
+    private void savePlaylists() throws IOException, Exception {
+ 
+        FileOutputStream fout = new FileOutputStream("User_Playlists.txt");
+        ObjectOutputStream out = new ObjectOutputStream(fout);
+
+        for (int i = 0; i < masterUser.getAllPlaylists().size(); i++) {
+            out.writeObject(masterUser.getAllPlaylists().get(i));
+            out.flush();
+        }
+
+        out.close();
+        fout.close();
+
+        fout = new FileOutputStream("numObj.txt");
+        clearText();
+        addText(masterUser.getAllPlaylists().size()-1 + ""); 
+        fout.close();
+    }
+
+
+    private void loadPlaylists() throws IOException, Exception {
+        ObjectInputStream in = new ObjectInputStream(new FileInputStream("User_Playlists.txt"));
+        int j = Integer.parseInt(readText());
+        
+        for (int i = 0; i <= j; i++){
+            masterUser.addPlaylist((Playlist) in.readObject());
+        }
+
+        in.close();
+
+        displayPlaylists(masterUser, "user");
+
+        listUserPlaylists.setModel(userPlaylistsDisplay);
+        jScrollPane8.revalidate();
+        jScrollPane8.repaint();
+    }
+
+    /**
+     * 
+     * @param text 
+     */
+    private void addText(String text) {
+        byte data[] = text.getBytes();
+        try (OutputStream out = new BufferedOutputStream(
+                Files.newOutputStream(p, CREATE, APPEND))) {
+            out.write(data, 0, data.length);
+        } catch (IOException x) {
+            System.err.println(x);
+        }
+    }
+
+    /**
+     * 
+     * @return 
+     */
+    private String readText() {
+        try (InputStream in = Files.newInputStream(p);
+            BufferedReader reader = new BufferedReader(new InputStreamReader(in))) {
+            String line = null;
+            while ((line = reader.readLine()) != null) {
+                return line;
+            }
+        } catch (IOException x) {
+            System.err.println(x);
+        }
+        return "";
+    }
+
+    /**
+     * 
+     * @throws IOException
+     * @throws Exception 
+     */
+    private void clearText() throws IOException, Exception {
+        PrintWriter pw = new PrintWriter("numObj.txt");
+        pw.close();
     }
 
     public static void main(String args[])
