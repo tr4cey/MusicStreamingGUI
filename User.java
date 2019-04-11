@@ -34,6 +34,7 @@ public class User {
     /**
      * Gets all the playlists of the current user
      * @return An ArrayList of Playlist objects
+     * @see Playlist
      */
     public ArrayList<Playlist> getAllPlaylists(){
         return this.playlists;
@@ -51,18 +52,24 @@ public class User {
     /**
      * Creates a playlist that is then
      * added to the list of user's other playlists
+     * @see Playlist
      */
     public void makePlaylist(){
         this.playlists.add(new Playlist());
     }
 
+    /**
+     * Adds an already populated Playlist object to the
+     * current User's list of Playlists
+     * @param playlist
+     * @see Playlist
+     */
     public void addPlaylist(Playlist playlist){
         this.playlists.add(playlist);
     }
 
     /**
-     * Removes a particular playlist from the user's
-     * plaulist list.
+     * Removes a particular playlist from the user's playlist list.
      * @param playlist the particular playlist to be removed
      */
     public void removePlaylist(Playlist playlist){
